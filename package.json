@@ -1,0 +1,19 @@
+{
+  "name": "capex-sg",
+  "version": "0.0.1",
+  "description": "This is the 3rd semester project wherein we will try and build a system to help Salling Group.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhviggo/capex-SG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhviggo/capex-SG/issues"
+  },
+  "homepage": "https://github.com/jhviggo/capex-SG#readme"
+}
