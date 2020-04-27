@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title CapEx system
+    link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  body
+    div
+      each project in projects
+        h1= project.name
+        each week, index in project.weeks
+          p(class="week")= index
