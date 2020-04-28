@@ -1,7 +1,5 @@
 'use strict'
 
-let developer = new Developer('Kristian', 'pleb', 'noob');
-developer.addProject()
 class Developer {
 
     constructor(name, status, rank){
@@ -10,7 +8,6 @@ class Developer {
         this._rank = rank;
         this._currentProjects = [];
         this._vacationDays = [];
-
     }
 
     addProject (project){
@@ -42,8 +39,13 @@ class Developer {
         });
         this._vacationDays = result;
         console.log(this._vacationDays);
-        
-
     }
 
+    get vacationDays() {
+        return this._vacationDays;
+    }
+
+    get currentProjects() {
+        return this._currentProjects;
+    }
 }
