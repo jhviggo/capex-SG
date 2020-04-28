@@ -9,8 +9,8 @@ app.set('view engine', 'pug');
 // Example data
 const projects = [
     {
-        name: 'bilka',
-        weeks: [{}, {}, {}]
+        name: 'Bilka',
+        weeks: [{class: 'week-green'}, {class: 'week-yellow'}, {class: 'week-red'}, {}, {}, {}]
     },
     {
         name: 'BR',

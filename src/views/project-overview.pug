@@ -2,10 +2,14 @@ doctype html
 html
   head
     title CapEx system
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
     link(rel="stylesheet", type="text/css", href="/css/styles.css")
   body
-    div
+    div(class="content")
       each project in projects
-        h1= project.name
-        each week, index in project.weeks
-          p(class="week")= index
+        h2= project.name
+        div(class="week-grid")
+          each week, index in project.weeks
+            div(class="week" class=week.class)
+              p= 'W'+index
+        br

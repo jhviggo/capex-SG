@@ -1,3 +1,43 @@
-.week{
-    background-color: green;
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Roboto", sans-serif;
+}
+
+.content {
+    width: 90%;
+    margin: auto;
+}
+
+.week {
+    background-color: #CCCCCC;
+    border: 2px solid #AAAAAA;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.week.week-green {
+    background-color: #B9DFBC;
+    border: 2px solid #86C78A;
+}
+
+.week.week-yellow {
+    background-color: #FBECB6; 
+    border: 2px solid #F7DA6E;
+}
+
+.week.week-red {
+    background-color: #FFCCCC;
+    border: 2px solid #FF8080;
+}
+
+
+/* Someone should make this reactive at some point */
+.week-grid {
+    display: grid;
+    width: 270px;
+    grid-template-columns: 20% 20% 20% 20% 20%;
 }
