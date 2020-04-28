@@ -1,6 +1,6 @@
 'use strict';
 
-class project {
+class Project {
     constructor(name, startDate, endDate, estimatedHours) {
         this._name = name;
         this._startDate = startDate;
@@ -63,3 +63,5 @@ class project {
         return this._endDate();
     }
 }
+
+exports.module = Project;

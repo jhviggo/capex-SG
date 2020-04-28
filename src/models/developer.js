@@ -18,15 +18,8 @@ class Developer {
         let result = this._currentProjects.filter((element)=>{
             return element.name != project.name;
         });
-        this._currentProjects = result;
-        console.log(this._currentProjects);
         
-
-        // this.currentProjects.forEach((item, index)=>{
-        //     if(item.name === oldProject.name){
-
-        //     }
-        // })
+        this._currentProjects = result;
     }
 
     addVacationDay(vacationDay){
@@ -49,3 +42,5 @@ class Developer {
         return this._currentProjects;
     }
 }
+
+exports.module = Developer;
