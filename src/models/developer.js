@@ -11,7 +11,10 @@ class Developer {
     }
 
     addProject (project){
-        this._currentProjects.push(project);
+        if (!this._currentProjects.includes(project)) {
+            this._currentProjects.push(project);
+            project.addDeveloper(this);
+        }
     }
 
     deleteProject(project){
@@ -41,6 +44,10 @@ class Developer {
     get currentProjects() {
         return this._currentProjects;
     }
+
+    get name() {
+        return this._name;
+    }
 }
 
-exports.module = Developer;
+module.exports.Developer = Developer;

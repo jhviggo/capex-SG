@@ -9,43 +9,58 @@ class Project {
         this._developers = [];
     }
 
+    addDeveloper(developer) {
+        if (!this._developers.includes(developer)) {
+            this._developers.push(developer);
+            developer.addProject(this);
+        }
+    }
+
     activeDevs(weekNumber) {
         let result = [];
 
         this._developers.forEach((dev) => {
-            dev.vacationDays.forEach((date) => {
-                if (date.getWeek() != weekNumber) {
-                    result.push(dev);
-                }
-            });
+            if (dev.vacationDays.length > 0) {
+                dev.vacationDays.forEach((date) => {
+                    if (date.getWeek() != weekNumber) {
+                        result.push(dev);
+                    }
+                });
+            }
+            else {
+                result.push(dev);
+            }
         });
-
+        
         return result;
     }
 
     weeksEfficiency(weekNumber) {
         //Calculates percentage of effecient devs.
-        let totalDevEfficiency;
+        let totalDevEfficiency = 0;
         let activeDevs = this.activeDevs(weekNumber);
 
         activeDevs.forEach((dev) => {
             let overlappingProjectCount = 0;
-            let individualDevEfficiency;
+            let individualDevEfficiency = 100;
 
             dev.currentProjects.forEach((project) => {
-                if (project.endDate().getWeek() < weekNumber) {
+                if (project.endDate.getWeek() >= weekNumber && project.startDate.getWeek() <= weekNumber) {
                     overlappingProjectCount++;
                 }
             });
 
-            individualDevEfficiency = 100 / overlappingProjectCount;
+            if (overlappingProjectCount > 1) {
+                individualDevEfficiency = individualDevEfficiency / overlappingProjectCount;
+            }
+
             totalDevEfficiency += individualDevEfficiency;
         });
 
-        return totalDevEfficiency / this._developers; 
+        return totalDevEfficiency / this._developers.length; 
     }
 
-    get weekColorCode(weekNumber) {
+    weekColorCode(weekNumber) {
         let projectEfficiency = this.weeksEfficiency(weekNumber);
 
         if (projectEfficiency >= 90) {
@@ -60,8 +75,16 @@ class Project {
     }
 
     get endDate() {
-        return this._endDate();
+        return this._endDate;
+    }
+
+    get startDate() {
+        return this._startDate;
+    }
+
+    get developers() {
+        return this._developers;
     }
 }
 
-exports.module = Project;
+module.exports.Project = Project;
