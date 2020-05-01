@@ -21,12 +21,9 @@ class Project {
 
         this._developers.forEach((dev) => {
             if (dev.vacationDays.length > 0) {
-                dev.vacationDays.forEach((date) => {
-                    if (date.getWeek() != weekNumber) {
-                        result.push(dev);
-                        break;
-                    }
-                });
+                if(!dev.vacationDays.some(date => date.getWeek() == weekNumber)) {
+                    result.push(dev);
+                }
             }
             else {
                 result.push(dev);
