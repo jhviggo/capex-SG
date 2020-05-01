@@ -18,10 +18,7 @@ class Developer {
     }
 
     deleteProject(project){
-        let result = this._currentProjects.filter((element)=>{
-            return element.name != project.name;
-        });
-        
+        let result = this._currentProjects.filter((element) => element.name != project.name);
         this._currentProjects = result;
     }
 
@@ -30,11 +27,8 @@ class Developer {
     }
     
     deleteVacationDay(vacationDay){
-        let result = this._vacationDays.filter((element)=>{
-            return element.name != vacationDay.name;
-        });
+        let result = this._vacationDays.filter((element) => element.name != vacationDay.name);
         this._vacationDays = result;
-        console.log(this._vacationDays);
     }
 
     get vacationDays() {

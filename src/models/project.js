@@ -24,6 +24,7 @@ class Project {
                 dev.vacationDays.forEach((date) => {
                     if (date.getWeek() != weekNumber) {
                         result.push(dev);
+                        break;
                     }
                 });
             }
@@ -38,7 +39,7 @@ class Project {
     weeksEfficiency(weekNumber) {
         //Calculates percentage of effecient devs.
         let totalDevEfficiency = 0;
-        let activeDevs = this.activeDevs(weekNumber);
+        const activeDevs = this.activeDevs(weekNumber);
 
         activeDevs.forEach((dev) => {
             let overlappingProjectCount = 0;
@@ -61,7 +62,7 @@ class Project {
     }
 
     weekColorCode(weekNumber) {
-        let projectEfficiency = this.weeksEfficiency(weekNumber);
+        const projectEfficiency = this.weeksEfficiency(weekNumber);
 
         if (projectEfficiency >= 90) {
             return 'GREEN';
