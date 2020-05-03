@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title CapEx system
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
+    link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  body
+    div(class="header")
+      div(class="link-button")
+        a(href="/") Back to overview
+    div(class="content")
+      h1 Add new project
+
+      form(class="input-container", action="/add/project", method="POST")
+        label(for="name") name
+        input(type="text", name="name")
+
+        label(for="startDate") Start date
+        input(type="date", name="startDate")
+
+        label(for="endDate") End date
+        input(type="date", name="endDate")
+
+        label(for="hours") Estimated hours
+        input(type="text", name="hours")
+      
+        p Developers:
+        div(class="checkbox-container")
+          each dev, index in devs
+            div
+              input(type="checkbox", name=`dev-${index}`)
+              label(for=`dev-${index}`)= dev._name
+        
+        button(type="submit") Add project

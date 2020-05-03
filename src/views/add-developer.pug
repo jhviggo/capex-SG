@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title CapEx system
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
+    link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  body
+    div(class="header")
+      div(class="link-button")
+        a(href="/") Back to overview
+    div(class="content")
+      h1 Add new developer
+
+      form(class="input-container", action="/add/project", method="POST")
+        label(for="name") name
+        input(type="text", name="name")
+
+        label(for="status") Status
+        input(type="text", name="status")
+
+        label(for="rank") Rank
+        input(type="text", name="rank")
+        
+        button(type="submit") Add project

@@ -1,6 +1,6 @@
 const express = require('express');
-
 const app = express();
+const addRoute = require('./routes/add');
 
 app.use(express.static('assets'));
 
@@ -21,5 +21,7 @@ const projects = [
 app.get('/', (req, res) => {
     res.render('project-overview', {projects: projects})
 });
+
+app.use('/add', addRoute);
 
 app.listen(8080, () => console.log('Running on port 8080...'));

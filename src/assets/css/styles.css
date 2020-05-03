@@ -6,6 +6,35 @@ h1, h2, h3, h4, h5 {
     font-family: "Roboto", sans-serif;
 }
 
+input[type="text"], input[type="date"] {
+    border: 1px solid gray;
+    border-radius: .25rem;
+    padding: .5rem 0.5rem;
+    width: 25rem;
+}
+
+/* input override */
+input[type="date"]{
+    padding: .35rem .5rem;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    display: flex;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    border: unset;
+    color: white;
+    padding: .4rem .75rem;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+    background-color: green;
+}
+
 .content {
     width: 90%;
     margin: auto;
@@ -49,4 +78,38 @@ h1, h2, h3, h4, h5 {
     display: grid;
     grid-template-columns: repeat(10, 50px);
     grid-gap: 2px;
+}
+
+.header {
+    display: grid;
+    justify-content: end;
+    grid-gap: 5px;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(10, max-content);
+}
+
+.link-button {
+    background-color: #28a745;
+    display: flex;
+    border-radius: .25rem;
+    box-sizing: border-box;
+}
+
+.link-button:hover {
+    background-color: green;
+}
+
+.link-button a {
+    color: white;
+    text-decoration: none;
+    padding: .4rem .75rem;
+}
+
+.input-container {
+    display: inline-grid;
+}
+
+.checkbox-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
