@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const addRoute = require('./routes/add');
+const Holidays = require('date-holidays');
+const hd = new Holidays();
+
+hd.init('DK');
 
 app.use(express.static('assets'));
 
@@ -25,3 +29,6 @@ app.get('/', (req, res) => {
 app.use('/add', addRoute);
 
 app.listen(8080, () => console.log('Running on port 8080...'));
+
+
+
