@@ -5,6 +5,11 @@ html
     link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
     link(rel="stylesheet", type="text/css", href="/css/styles.css")
   body
+    div(class="header")
+      div(class="link-button")
+        a(href="/add/project") Add project
+      div(class="link-button")
+        a(href="/add/developer") Add Developer
     div(class="content")
       each project in projects
         h2(class="project-title")= project.name
