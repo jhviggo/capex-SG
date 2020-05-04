@@ -4,6 +4,7 @@
   "description": "This is the 3rd semester project wherein we will try and build a system to help Salling Group.",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
