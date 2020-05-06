@@ -6,9 +6,12 @@ const hd = new Holidays();
 
 hd.init('DK');
 
-app.use(express.static('assets'));
+app.use(express.static('src/assets'));
 
+app.set('views', 'src/views');
 app.set('view engine', 'pug');
+
+const port = process.env.PORT || 8080;
 
 // Example data
 const projects = [
@@ -28,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/add', addRoute);
 
-app.listen(8080, () => console.log('Running on port 8080...'));
+app.listen(port, () => console.log(`Running on port ${port}...`));
 
 
 
