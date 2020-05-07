@@ -33,8 +33,7 @@ router.post('/project', (req, res) => {
         }
     }
     else {
-        res.statusCode(400);
-        res.statusMessage("All fields must be filled");
+        res.status(400).send("All fields must be filled");
     }
     
     res.end();
