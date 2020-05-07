@@ -11,6 +11,7 @@ admin.initializeApp({
 //Database reference
 const db = admin.firestore();
 
+
 function createDeveloper(name, status, rank) {
   return db.collection('developers').doc().set({
     name: name,
@@ -19,4 +20,14 @@ function createDeveloper(name, status, rank) {
   });
 }
 
+function createProject(name, startDate, endDate, estimatedHours) {
+  return db.collection('Projects').doc().set({
+    name: name,
+    startDate: startDate,
+    endDate: endDate,
+    estimatedHours: estimatedHours
+  });
+}
+
 module.exports.createDeveloper = createDeveloper; 
+module.exports.createProject = createProject;
