@@ -1,6 +1,6 @@
 const devModel = require('../src/models/developer');
 const projectModel = require('../src/models/project'); 
-const dateUtil = require('../src/util/dateUtil');
+require('../src/util/dateUtil');
 
 let devs = [
     new devModel.Developer('Kristian', 'Free', 'pleb'),

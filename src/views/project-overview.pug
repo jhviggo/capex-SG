@@ -1,9 +1,6 @@
 doctype html
 html
-  head
-    title CapEx system
-    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
-    link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  include includes/header.pug
   body
     div(class="header")
       div(class="link-button")
@@ -16,4 +13,5 @@ html
         div(class="week-grid")
           each week, index in project.weeks
             div(class="week" class=week.class)
+              //TODO should have reference to week-overview route
               p= 'W'+index

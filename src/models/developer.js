@@ -2,7 +2,8 @@
 
 class Developer {
 
-    constructor(name, status, rank){
+    constructor(docId, name, status, rank){
+        this._docId = docId;
         this._name = name;
         this._status = status;
         this._rank = rank;
@@ -49,6 +50,18 @@ class Developer {
 
     get name() {
         return this._name;
+    }
+
+    get rank() {
+        return this._rank;
+    }
+
+    get status() {
+        return this._status;
+    }
+
+    get docId() {
+        return this._docId;
     }
 }
 
