@@ -22,3 +22,23 @@ devs[0].addProject(projects[1]);
 console.log(projects[0].weeksEfficiency(18));
 console.log(projects[0].weekColorCode());
 console.log(projects[1].weeksEfficiency(20));
+
+
+
+
+//
+
+//let dev1 = new devModel.Developer('Mogens', 'Free', 'Pleb');
+
+//let proj1 = new projectModel.Project('Noob project', new Date(), new Date(2020, 4, 2), 50);
+//let proj2 = new projectModel.Project('Pro project', new Date(), new Date(2020, 4, 2), 50);
+
+
+//dev1.addProject(proj1);
+//dev1.addProject(proj2);
+
+//console.log(dev1.currentProjects);
+//console.log(dev1.currentProjects.indexOf(proj2));
+//dev1.deleteProjectReal(proj1);
+//console.log(dev1.currentProjects);
+

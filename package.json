@@ -18,10 +18,11 @@
   },
   "homepage": "https://github.com/jhviggo/capex-SG#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "pug": "^2.0.4",
-    "firebase-admin": "^8.11.0",
+    "chai": "^4.2.0",
     "date-holidays": "^1.5.1",
-    "mocha": "^7.1.2"
+    "express": "^4.17.1",
+    "firebase-admin": "^8.11.0",
+    "mocha": "^7.1.2",
+    "pug": "^2.0.4"
   }
 }
