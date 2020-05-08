@@ -18,8 +18,11 @@ class Developer {
     }
 
     deleteProject(project){
-        let result = this._currentProjects.filter((element) => element.name != project.name);
-        this._currentProjects = result;
+        var index = this._currentProjects.indexOf(project);
+        if(index > -1){
+            this._currentProjects.splice(index, 1);
+        }
+        return 'Project does not exist';
     }
 
     addVacationDay(vacationDay){
@@ -27,8 +30,11 @@ class Developer {
     }
     
     deleteVacationDay(vacationDay){
-        let result = this._vacationDays.filter((element) => element.name != vacationDay.name);
-        this._vacationDays = result;
+        var index = this._vacationDays.indexOf(vacationDay);
+        if(index > -1){
+            this._vacationDays.splice(index, 1);
+        }
+        return 'Vacationday does not exist';
     }
 
     get vacationDays() {
