@@ -20,6 +20,7 @@ class Project {
         var index = this._developers.indexOf(developer);
         if(index > -1){
             this._developers.splice(index, 1);
+            return true;
         }
         return false;
     }

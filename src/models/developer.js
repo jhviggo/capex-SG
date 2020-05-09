@@ -21,6 +21,7 @@ class Developer {
         var index = this._currentProjects.indexOf(project);
         if(index > -1){
             this._currentProjects.splice(index, 1);
+            return true;
         }
         return false;
     }
@@ -33,6 +34,7 @@ class Developer {
         var index = this._vacationDays.indexOf(vacationDay);
         if(index > -1){
             this._vacationDays.splice(index, 1);
+            return true;
         }
         return false;
     }
