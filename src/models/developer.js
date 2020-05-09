@@ -22,7 +22,7 @@ class Developer {
         if(index > -1){
             this._currentProjects.splice(index, 1);
         }
-        return 'Project does not exist';
+        return false;
     }
 
     addVacationDay(vacationDay){
@@ -34,7 +34,7 @@ class Developer {
         if(index > -1){
             this._vacationDays.splice(index, 1);
         }
-        return 'Vacationday does not exist';
+        return false;
     }
 
     get vacationDays() {

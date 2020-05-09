@@ -21,7 +21,7 @@ class Project {
         if(index > -1){
             this._developers.splice(index, 1);
         }
-        return 'Developer is not part of this project';
+        return false;
     }
 
     activeDevs(weekNumber) {
