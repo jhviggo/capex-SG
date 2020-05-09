@@ -16,6 +16,14 @@ class Project {
         }
     }
 
+    deleteDeveloper(developer){
+        var index = this._developers.indexOf(developer);
+        if(index > -1){
+            this._developers.splice(index, 1);
+        }
+        return 'Developer is not part of this project';
+    }
+
     activeDevs(weekNumber) {
         let result = [];
 
