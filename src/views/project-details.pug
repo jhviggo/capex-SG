@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title CapEx system
+    link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap")
+    link(rel="stylesheet", type="text/css", href="/css/styles.css")
+  body
+    div(class="header")
+      div(class="link-button")
+        a(href="/add/project") Add project
+      div(class="link-button")
+        a(href="/add/developer") Add Developer
+    div(class="content")
+        //checkbox-container should probably have a better name
+        div(class="checkbox-container")
+            div
+                h1= data.name
+                p= 'Estimated hours: ' + data.estimated_hours
+                p= 'Workers: ' + data.workers
+                p= 'Duration: ' + data.duration
+                p= 'Red weeks: ' + data.red_weeks
+            div
+                h1= 'Developers'
+                each developer in data.developers
+                    p= developer.name
