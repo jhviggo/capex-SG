@@ -21,8 +21,9 @@ class Developer {
         var index = this._currentProjects.indexOf(project);
         if(index > -1){
             this._currentProjects.splice(index, 1);
+            return true;
         }
-        return 'Project does not exist';
+        return false;
     }
 
     addVacationDay(vacationDay){
@@ -33,8 +34,9 @@ class Developer {
         var index = this._vacationDays.indexOf(vacationDay);
         if(index > -1){
             this._vacationDays.splice(index, 1);
+            return true;
         }
-        return 'Vacationday does not exist';
+        return false;
     }
 
     get vacationDays() {
