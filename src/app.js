@@ -36,5 +36,7 @@ app.use('/add', addRoute);
 
 app.listen(port, () => console.log(`Running on port ${port}...`));
 
+//Used for testing purposes
+module.exports = app;
 
 

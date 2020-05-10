@@ -24,12 +24,12 @@ router.post('/project', (req, res) => {
         startDate = new Date(startDate);
         endDate = new Date(endDate);
         
-        if (startDate instanceof Date && endDate instanceof Date) {
+        if (startDate.getTime() < endDate.getTime()) {
             controller.createProject(name, startDate, endDate, estimatedHours);
             res.sendStatus(200);
         }
         else {
-            throw new Error("Start Date and End Date must be an instance of the Date object");
+            throw new Error("Start Date must be lesser than End Date");
         }
     }
     else {
