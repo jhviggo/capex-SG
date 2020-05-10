@@ -10,3 +10,13 @@ admin.initializeApp({
 
 //Database reference
 const db = admin.firestore();
+
+function createDeveloper(name, status, rank) {
+  return db.collection('developers').doc().set({
+    name: name,
+    status: status,
+    rank: rank
+  });
+}
+
+module.exports.createDeveloper = createDeveloper; 
