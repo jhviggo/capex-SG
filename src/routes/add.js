@@ -24,7 +24,7 @@ router.post('/project', (req, res) => {
         startDate = new Date(startDate);
         endDate = new Date(endDate);
         
-        if (startDate.getTime() < endDate.getTime()) {
+        if (startDate < endDate) {
             controller.createProject(name, startDate, endDate, estimatedHours);
             res.sendStatus(200);
         }
