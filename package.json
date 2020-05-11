@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jhviggo/capex-SG#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "date-holidays": "^1.5.1",
     "express": "^4.17.1",
     "firebase-admin": "^8.11.0",

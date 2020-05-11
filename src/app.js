@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
+
 const addRoute = require('./routes/add');
+
 const Holidays = require('date-holidays');
 const hd = new Holidays();
 
@@ -34,5 +36,7 @@ app.use('/add', addRoute);
 
 app.listen(port, () => console.log(`Running on port ${port}...`));
 
+//Used for testing purposes
+module.exports = app;
 
 
