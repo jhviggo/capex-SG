@@ -7,7 +7,8 @@ const hd = new Holidays();
 hd.init('DK');
 
 app.use(express.static('src/assets'));
-
+app.use(express.json());
+app.use(express.urlencoded());
 app.set('views', 'src/views');
 app.set('view engine', 'pug');
 

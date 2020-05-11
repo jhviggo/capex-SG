@@ -11,14 +11,14 @@ html
     div(class="content")
       h1 Add new developer
 
-      form(class="input-container", action="/add/project", method="POST")
+      form(class="input-container", action="/add/developer", method="POST")
         label(for="name") name
-        input(type="text", name="name")
+        input(type="text", name="name", required)
 
         label(for="status") Status
-        input(type="text", name="status")
+        input(type="text", name="status", required)
 
         label(for="rank") Rank
-        input(type="text", name="rank")
+        input(type="text", name="rank", required)
         
         button(type="submit") Add project
