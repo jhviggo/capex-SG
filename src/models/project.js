@@ -1,5 +1,7 @@
 'use strict';
 
+require('../util/dateUtil');
+
 class Project {
     constructor(docId, name, startDate, endDate, estimatedHours) {
         this._docId = docId;
