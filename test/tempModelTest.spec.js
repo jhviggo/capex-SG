@@ -22,8 +22,3 @@ devs[0].addProject(projects[1]);
 console.log(projects[0].weeksEfficiency(18));
 console.log(projects[0].weekColorCode());
 console.log(projects[1].weeksEfficiency(20));
-
-
-
-
-

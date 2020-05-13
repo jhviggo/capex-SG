@@ -40,8 +40,6 @@ app.get('/:project/:weeknumber', async (req, res) => {
     //TODO get project from database where req.params.name eqaul DB project name. (Function should be made in controller)
     let project = await controller.getProject(req.params.project);
 
-    controller.addDeveloper(req.params.project, developer);
-
     res.render('week-overview', {developers: project._developers, currentWeek: req.params.weeknumber});
 });
 
