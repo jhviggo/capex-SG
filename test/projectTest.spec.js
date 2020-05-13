@@ -7,11 +7,11 @@ let dev1, dev2, dev3, proj1, proj2, vac1;
 
 describe('developer', () => {
     beforeEach(function(){
-        dev1 = new devModel.Developer('Kristian', 'Free', 'pleb');
-        dev2 = new devModel.Developer('Kristoffer', 'Free', 'CSGO PRO');
-        dev3 = new devModel.Developer('Kasper', 'Free', 'GUDEN');
-        proj1 = new projectModel.Project('Tonse Project', new Date(), new Date(2020, 4, 20), 50);
-        proj2 = new projectModel.Project('Det lille project', new Date(), new Date(2020, 4, 28), 10);
+        dev1 = new devModel.Developer('1', 'Kristian', 'Free', 'pleb');
+        dev2 = new devModel.Developer('2', 'Kristoffer', 'Free', 'CSGO PRO');
+        dev3 = new devModel.Developer('3', 'Kasper', 'Free', 'GUDEN');
+        proj1 = new projectModel.Project('1', 'Tonse Project', new Date(), new Date(2020, 4, 20), 50);
+        proj2 = new projectModel.Project('2', 'Det lille project', new Date(), new Date(2020, 4, 28), 10);
         vac1 = new Date(2020, 4, 13);
     });
 
