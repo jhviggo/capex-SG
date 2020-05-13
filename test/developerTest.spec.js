@@ -6,9 +6,9 @@ let dev, project, TTT, vac1, vac2;
 
 describe('developer', () => {
     beforeEach(function(){
-        dev = new devModel.Developer('Kristian', 'Free', 'pleb');
-        project = new projectModel.Project('Tonse Project', new Date(), new Date(2020, 4, 2), 50);
-        TTT = new projectModel.Project('Det lille project', new Date(), new Date(2020, 4, 11), 10);
+        dev = new devModel.Developer('1', 'Kristian', 'Free', 'pleb');
+        project = new projectModel.Project('2', 'Tonse Project', new Date(), new Date(2020, 4, 2), 50);
+        TTT = new projectModel.Project('3', 'Det lille project', new Date(), new Date(2020, 4, 11), 10);
         vac1 = 'Vacation1';
         vac2 = 'Vacation2';
     });

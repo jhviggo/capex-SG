@@ -1,0 +1,22 @@
+doctype html
+html
+  include includes/header.pug
+  body
+    - var weekNumber = currentWeek;
+    div(class="header")
+      div(class="link-button")
+        a(href="/") Back to overview
+    div(class="content")
+      each developer in developers
+        div(class="dropdown")
+          button(onclick="dropdown()" class="dropbtn")= developer.name
+          div(id="myDropdown" class="dropdown-content")
+            p= 'Status: ' + developer.status
+            p= 'Rank: ' + developer.rank
+            each vactionday in developer.vacationDays
+              if vactionday.getWeek() === weekNumber
+                p= 'Is on vaction'
+            p= 'Works on:'
+            each currentproject in developer.currentProjects
+              a(href='/' + currentproject.docId + '/' + weekNumber) #{currentproject.name}
+              

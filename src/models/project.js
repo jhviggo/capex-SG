@@ -1,7 +1,10 @@
 'use strict';
 
+require('../util/dateUtil');
+
 class Project {
-    constructor(name, startDate, endDate, estimatedHours) {
+    constructor(docId, name, startDate, endDate, estimatedHours) {
+        this._docId = docId;
         this._name = name;
         this._startDate = startDate;
         this._endDate = endDate;
@@ -91,6 +94,14 @@ class Project {
 
     get developers() {
         return this._developers;
+    }
+
+    get docId() {
+        return this._docId;
+    }
+
+    get name() {
+        return this._name;
     }
 }
 
