@@ -18,19 +18,9 @@ app.set('view engine', 'pug');
 
 const port = process.env.PORT || 8080;
 
-// Example data
-const projects = [
-    {
-        name: 'Bilka',
-        weeks: [{class: 'week-green'}, {class: 'week-yellow'}, {class: 'week-red'}, {}, {}, {}]
-    },
-    {
-        name: 'BR',
-        weeks: [{}, {}]
-    }
-] // ------
+app.get('/', async (req, res) => {
+    const projects = await controller.getAllProjects();
 
-app.get('/', (req, res) => {
     res.render('project-overview', {projects: projects})
 });
 
@@ -38,7 +28,7 @@ app.use('/add', addRoute);
 
 app.get('/:project/:weeknumber', async (req, res) => {
     //TODO get project from database where req.params.name eqaul DB project name. (Function should be made in controller)
-    let project = await controller.getProject(req.params.project);
+    const project = await controller.getProject(req.params.project);
 
     res.render('week-overview', {developers: project._developers, currentWeek: req.params.weeknumber});
 });

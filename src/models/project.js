@@ -74,14 +74,25 @@ class Project {
         const projectEfficiency = this.weeksEfficiency(weekNumber);
 
         if (projectEfficiency >= 90) {
-            return 'GREEN';
+            return 'week-green';
         }
         else if (projectEfficiency < 90 && projectEfficiency > 50) {
-            return 'YELLOW';
+            return 'week-yellow';
         }
         else {
-            return 'RED';
+            return 'week-red';
         }
+    }
+
+    get weeks() {
+        let weeks = []; 
+        let dateDiff = this._endDate.getWeek() - this._startDate.getWeek();
+
+        for (let i = 0; i < dateDiff; i++) {
+            weeks.push(this.weekColorCode(i));
+        }
+
+        return weeks;
     }
 
     get endDate() {

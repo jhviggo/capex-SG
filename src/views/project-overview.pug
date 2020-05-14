@@ -12,6 +12,6 @@ html
         h2(class="project-title")= project.name
         div(class="week-grid")
           each week, index in project.weeks
-            div(class="week" class=week.class)
-              //TODO should have reference to week-overview route
-              p= 'W'+index
+            a(href="/" + project.docId + "/" + index) 
+              div(class="week" class=week.class class=week)
+                p= 'W' + index
