@@ -14,14 +14,17 @@ admin.initializeApp({
 //Database reference
 const db = admin.firestore();
 
-function createDeveloper(name, status, rank) {
+function createDeveloper(name, status, rank, vacationDays) {
   return db.collection('Developers').add({
     name: name,
     status: status,
-    rank: rank
+    rank: rank,
+    vacationDays: vacationDays
   })
   .then((docRef) => {
-    return new Developer(docRef.id, name, status, rank);  
+    const dev = new Developer(docRef.id, name, status, rank);
+    dev.vacationDays = vacationDays;
+    return dev;
   });
 }
 
@@ -97,9 +100,22 @@ async function getProject(projectDocId) {
   return objProject;
 }
 
+async function getDevelopers() {
+  return await db.collection("Developers").get();
+}
+
+async function updateDeveloper(developerId, newDeveloperData) {
+  return await db.collection("Developers")
+  .doc(developerId)
+  .update(newDeveloperData)
+  .catch(err => { throw new Error("No such developer") });
+}
+
 module.exports.getProject = getProject;
 module.exports.createDeveloper = createDeveloper; 
 module.exports.createProject = createProject;
 module.exports.addDeveloperToProject = addDeveloperToProject;
 module.exports.getAllProjects = getAllProjects;
+module.exports.updateDeveloper = updateDeveloper;
+module.exports.getDevelopers = getDevelopers;
 

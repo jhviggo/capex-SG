@@ -1,6 +1,7 @@
 doctype html
 html
   include includes/header.pug
+  script(src="/js/addDeveloper.js")
   body
     div(class="header")
       div(class="link-button")
@@ -17,5 +18,9 @@ html
 
         label(for="rank") Rank
         input(type="text", name="rank", required)
+
+        button(class="plus", type="button", onclick="addVacationInput()") +
+        div(id="vacation-container" class="input-container")
+
         
         button(type="submit") Add project

@@ -49,7 +49,7 @@ router.post('/developer', (req, res) => {
     if (req.body.name !== undefined
         && req.body.status !== undefined
         && req.body.rank !== undefined) {
-            controller.createDeveloper(req.body.name, req.body.status, req.body.rank);
+            controller.createDeveloper(req.body.name, req.body.status, req.body.rank, req.body.vacationDays);
             res.status(200)
                 .send("Developer saved!")
         }
