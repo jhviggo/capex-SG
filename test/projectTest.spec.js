@@ -112,7 +112,7 @@ describe('developer', () => {
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
         proj1.addDeveloper(dev3);
-        assert.isTrue(proj1.weekColorCode(20) === 'GREEN');
+        assert.isTrue(proj1.weekColorCode(20) === 'week-green');
     });
     it('weekColorCode should return a color matching the efficiency percentage', function(){
         // 1 dev with overlapping projects
@@ -121,7 +121,7 @@ describe('developer', () => {
         proj1.addDeveloper(dev2);
         proj1.addDeveloper(dev3);
         proj2.addDeveloper(dev1);
-        assert.isTrue(proj1.weekColorCode(20) === 'YELLOW');
+        assert.isTrue(proj1.weekColorCode(20) === 'week-yellow');
     });
     it('weekColorCode should return a color matching the efficiency percentage', function(){
         // 3 devs on vacation
@@ -132,6 +132,6 @@ describe('developer', () => {
         dev1.addVacationDay(vac1);
         dev2.addVacationDay(vac1);
         dev3.addVacationDay(vac1);
-        assert.isTrue(proj1.weekColorCode(20) === 'RED');
+        assert.isTrue(proj1.weekColorCode(20) === 'week-red');
     });
 })
