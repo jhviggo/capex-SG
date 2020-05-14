@@ -126,5 +126,16 @@ button[type="submit"]:hover {
     color: red;
 }
 
+.plus {
+    width: fit-content;
 
-
+    background-color: #28a745;
+    border-radius: .25rem;
+    box-sizing: border-box;
+    border: unset;
+    color: white;
+    padding: .5rem 0.8rem;
+    margin-top: 1rem;
+    justify-content: center;
+    cursor: pointer;
+}
