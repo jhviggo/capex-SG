@@ -113,3 +113,18 @@ button[type="submit"]:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.GREEN {
+    color: green;
+}
+
+.YELLOW {
+    color: yellow;
+}
+
+.RED {
+    color: red;
+}
+
+
+

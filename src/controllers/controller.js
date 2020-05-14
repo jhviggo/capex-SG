@@ -50,13 +50,34 @@ function addDeveloperToProject(project, developer) {
 
 //TODO deleteDeveloperFromProject
 
+async function getAllProjects() {
+  let projectSnapshot = await db.collection('Projects').get();
+  let projectArray = [];
+
+  for (project of projectSnapshot._docs()) {
+    let projectData = project.data();
+    let projectObj = new Project(project.id, projectData.name, new Date(projectData.startDate.toDate()), new Date(projectData.endDate.toDate()), projectData.estimatedHours);
+    projectArray.push(projectObj);
+    
+    let developerInProjectSnapshot = await db.collection('DevelopersInProject').where('projectDocId', '==', projectObj.docId).get();
+
+    for (developerInProject of developerInProjectSnapshot._docs()) {
+      let developerInProjectData = developerInProject.data();
+
+      projectObj.addDeveloper(new Developer(developerInProject.id, developerInProjectData.name, developerInProjectData.status, developerInProjectData.rank));
+    }
+  }
+
+  return projectArray;
+}
+
 async function getProject(projectDocId) {
   let dbProject = await db.collection('Projects').doc(projectDocId).get();
   let objProject = undefined;
 
   if (dbProject.exists) {
     let projectData = dbProject.data();
-    objProject = new Project(projectDocId, projectData.name, projectData.startDate, projectData.endDate, projectData.estimatedHours);
+    objProject = new Project(projectDocId, projectData.name, new Date(projectData.startDate.toDate()), new Date(projectData.endDate.toDate()), projectData.estimatedHours);
 
     let developersInProject = await db.collection('DevelopersInProject').where('projectDocId', '==', projectDocId).get();
 
@@ -80,4 +101,5 @@ module.exports.getProject = getProject;
 module.exports.createDeveloper = createDeveloper; 
 module.exports.createProject = createProject;
 module.exports.addDeveloperToProject = addDeveloperToProject;
+module.exports.getAllProjects = getAllProjects;
 

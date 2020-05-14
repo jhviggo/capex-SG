@@ -18,19 +18,9 @@ app.set('view engine', 'pug');
 
 const port = process.env.PORT || 8080;
 
-// Example data
-const projects = [
-    {
-        name: 'Bilka',
-        weeks: [{class: 'week-green'}, {class: 'week-yellow'}, {class: 'week-red'}, {}, {}, {}]
-    },
-    {
-        name: 'BR',
-        weeks: [{}, {}]
-    }
-] // ------
+app.get('/', async (req, res) => {
+    let projects = await controller.getAllProjects();
 
-app.get('/', (req, res) => {
     res.render('project-overview', {projects: projects})
 });
 
