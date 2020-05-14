@@ -51,18 +51,18 @@ function addDeveloperToProject(project, developer) {
 //TODO deleteDeveloperFromProject
 
 async function getAllProjects() {
-  let projectSnapshot = await db.collection('Projects').get();
-  let projectArray = [];
+  const projectSnapshot = await db.collection('Projects').get();
+  const projectArray = [];
 
   for (project of projectSnapshot._docs()) {
-    let projectData = project.data();
-    let projectObj = new Project(project.id, projectData.name, new Date(projectData.startDate.toDate()), new Date(projectData.endDate.toDate()), projectData.estimatedHours);
+    const projectData = project.data();
+    const projectObj = new Project(project.id, projectData.name, new Date(projectData.startDate.toDate()), new Date(projectData.endDate.toDate()), projectData.estimatedHours);
     projectArray.push(projectObj);
     
-    let developerInProjectSnapshot = await db.collection('DevelopersInProject').where('projectDocId', '==', projectObj.docId).get();
+    const developerInProjectSnapshot = await db.collection('DevelopersInProject').where('projectDocId', '==', projectObj.docId).get();
 
     for (developerInProject of developerInProjectSnapshot._docs()) {
-      let developerInProjectData = developerInProject.data();
+      const developerInProjectData = developerInProject.data();
 
       projectObj.addDeveloper(new Developer(developerInProject.id, developerInProjectData.name, developerInProjectData.status, developerInProjectData.rank));
     }

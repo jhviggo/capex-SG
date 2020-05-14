@@ -19,7 +19,7 @@ app.set('view engine', 'pug');
 const port = process.env.PORT || 8080;
 
 app.get('/', async (req, res) => {
-    let projects = await controller.getAllProjects();
+    const projects = await controller.getAllProjects();
 
     res.render('project-overview', {projects: projects})
 });
@@ -28,7 +28,7 @@ app.use('/add', addRoute);
 
 app.get('/:project/:weeknumber', async (req, res) => {
     //TODO get project from database where req.params.name eqaul DB project name. (Function should be made in controller)
-    let project = await controller.getProject(req.params.project);
+    const project = await controller.getProject(req.params.project);
 
     res.render('week-overview', {developers: project._developers, currentWeek: req.params.weeknumber});
 });
