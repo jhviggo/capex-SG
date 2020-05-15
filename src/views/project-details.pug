@@ -10,16 +10,18 @@ html
         a(href="/add/project") Add project
       div(class="link-button")
         a(href="/add/developer") Add Developer
+      div(class="link-button")
+        a(href="/") Back to overview
     div(class="content")
         //checkbox-container should probably have a better name
         div(class="checkbox-container")
             div
-                h1= data.name
-                p= 'Estimated hours: ' + data.estimated_hours
-                p= 'Workers: ' + data.workers
-                p= 'Duration: ' + data.duration
-                p= 'Red weeks: ' + data.red_weeks
+              h1= data.name
+              p= 'Estimated hours: ' + data.estimatedHours
+              p= 'Workers: ' + data.developers.length
+              p= 'Duration: ' + data.weeks.length
+              p= 'Red weeks: ' + data.redWeeks.length
             div
-                h1= 'Developers'
-                each developer in data.developers
-                    p= developer.name
+              h1= 'Developers'
+              each developer in data.developers
+                p= developer.name
