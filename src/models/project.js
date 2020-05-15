@@ -130,6 +130,10 @@ class Project {
     get name() {
         return this._name;
     }
+    
+    get estimatedHours() {
+        return this._estimatedHours;
+    }
 }
 
 module.exports.Project = Project;
