@@ -9,7 +9,7 @@ html
         a(href="/add/developer") Add Developer
     div(class="content")
       each project in projects
-        h2(class="project-title")= project.name
+        a(href="/project-details/" + project.docId class="project-title")= project.name
         div(class="week-grid")
           each week, index in project.weeks
             a(href="/" + project.docId + "/" + index) 

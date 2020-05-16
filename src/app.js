@@ -5,6 +5,8 @@ const addRoute = require('./routes/add');
 
 const controller = require('./controllers/controller');
 
+const detailsRoute = require('./routes/project_details');
+
 const Holidays = require('date-holidays');
 const hd = new Holidays();
 
@@ -25,6 +27,7 @@ app.get('/', async (req, res) => {
 });
 
 app.use('/add', addRoute);
+app.use('/project-details', detailsRoute);
 
 app.get('/:project/:weeknumber', async (req, res) => {
     //TODO get project from database where req.params.name eqaul DB project name. (Function should be made in controller)
@@ -32,6 +35,7 @@ app.get('/:project/:weeknumber', async (req, res) => {
 
     res.render('week-overview', {developers: project._developers, currentWeek: req.params.weeknumber});
 });
+
 
 app.listen(port, () => console.log(`Running on port ${port}...`));
 

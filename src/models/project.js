@@ -84,6 +84,22 @@ class Project {
         }
     }
 
+    get redWeeks() {
+        let weeks = []; 
+        let dateDiff = this._endDate.getWeek() - this._startDate.getWeek();
+
+        for (let i = 0; i < dateDiff; i++) {
+            let weekColor = this.weekColorCode(i);
+
+            if (weekColor === "week-red")
+            {
+                weeks.push();   
+            }
+        }
+
+        return weeks;
+    }
+
     get weeks() {
         let weeks = []; 
         let dateDiff = this._endDate.getWeek() - this._startDate.getWeek();
@@ -113,6 +129,10 @@ class Project {
 
     get name() {
         return this._name;
+    }
+    
+    get estimatedHours() {
+        return this._estimatedHours;
     }
 }
 
