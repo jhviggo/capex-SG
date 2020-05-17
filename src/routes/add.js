@@ -15,7 +15,7 @@ router.post('/project', async (req, res) => {
     let startDate = req.body.startDate;
     let endDate = req.body.endDate;
     let estimatedHours = req.body.hours;
-    console.log(req.body);
+
     if( name != undefined && 
         startDate != undefined && 
         endDate != undefined && 
