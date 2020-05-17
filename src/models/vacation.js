@@ -7,7 +7,7 @@ class Vacation {
     }
 
     get startDate() {
-        return this._startDate;
+        return this._startDate;;
     }
 
     get endDate() {
