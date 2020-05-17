@@ -3,9 +3,9 @@ const router = express.Router();
 
 const controller = require('../controllers/controller');
 
-const devs = require('../util/testData').devs;
+router.get('/project', async (req, res) => {
+    let devs = await controller.getDevelopers();
 
-router.get('/project', (req, res) => {
     res.render('add-project', { devs });
 });
 

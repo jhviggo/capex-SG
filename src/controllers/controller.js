@@ -101,7 +101,21 @@ async function getProject(projectDocId) {
 }
 
 async function getDevelopers() {
-  return await db.collection("Developers").get();
+  let devs = await db.collection("Developers").get();
+  let devArray = [];
+
+  for (dev of devs._docs()) {
+    let devData = dev.data();
+    let newDev = new Developer(dev.id, devData.name, devData.status, devData.rank);
+
+    for (let i = 0; i < dev.vacationDays; i++) {
+      newDev.addVacationDay(new Date(dev.vacationDays[i].startDate.toDate(), dev.vacationDays[i].endDate.toDate()));
+    }
+
+    devArray.push(newDev);
+  }
+
+  return devArray;
 }
 
 async function updateDeveloper(developerId, newDeveloperData) {
