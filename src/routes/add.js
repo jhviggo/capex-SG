@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const controller = require('../controllers/controller');
+const Developer = require('../models/developer').Developer;
 
 router.get('/project', async (req, res) => {
     let devs = await controller.getDevelopers();
@@ -9,12 +10,12 @@ router.get('/project', async (req, res) => {
     res.render('add-project', { devs });
 });
 
-router.post('/project', (req, res) => {
+router.post('/project', async (req, res) => {
     let name = req.body.name;
     let startDate = req.body.startDate;
     let endDate = req.body.endDate;
     let estimatedHours = req.body.hours;
-
+    console.log(req.body);
     if( name != undefined && 
         startDate != undefined && 
         endDate != undefined && 
@@ -25,7 +26,19 @@ router.post('/project', (req, res) => {
         endDate = new Date(endDate);
         
         if (startDate < endDate) {
-            controller.createProject(name, startDate, endDate, estimatedHours);
+            let project = await controller.createProject(name, startDate, endDate, estimatedHours);
+
+            for (dev of req.body.devs) {
+                let devData = await JSON.parse(dev);
+                let newDev = new Developer(devData._docId, devData._name, devData._status, devData._rank);
+
+                for (let i = 0; i < devData._vacationDays; i++) {
+                    newDev.addVacationDay(devData.vacationDays[i].startDate.toDate(), devData.vacationDays[i].endDate.toDate());
+                }
+
+                controller.addDeveloperToProject(project, newDev);
+            }
+
             res.sendStatus(200);
         }
         else {

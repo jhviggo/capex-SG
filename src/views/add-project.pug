@@ -25,7 +25,7 @@ html
         div(class="checkbox-container")
           each dev, index in devs
             div
-              input(type="checkbox", name=`dev-${index}`)
-              label(for=`dev-${index}`)= dev._name
+              input(type="checkbox", name=`devs` value=dev)
+              label(for=`devs`)= dev._name
         
         button(type="submit") Add project
