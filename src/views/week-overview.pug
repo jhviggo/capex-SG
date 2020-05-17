@@ -9,8 +9,8 @@ html
     div(class="content")
       each developer in developers
         div(class="dropdown")
-          button(onclick="dropdown()" class="dropbtn")= developer.name
-          div(id="myDropdown" class="dropdown-content")
+          button(onclick="dropdown('" + developer.docId + "')" class="dropbtn")= developer.name
+          div(id=developer.docId class="dropdown-content")
             p= 'Status: ' + developer.status
             p= 'Rank: ' + developer.rank
             each vactionday in developer.vacationDays

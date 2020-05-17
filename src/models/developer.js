@@ -33,7 +33,7 @@ class Developer {
         return false;
     }
 
-    addVacationDay(vacationDay){
+    addVacationDay(startDate, endDate){
         this._vacationDays.push(vacationDay);
     }
     
