@@ -64,6 +64,8 @@ class Project {
                 individualDevEfficiency = individualDevEfficiency / overlappingProjectCount;
             }
 
+            individualDevEfficiency *= dev.efficiency(weekNumber);
+
             totalDevEfficiency += individualDevEfficiency;
         });
 
