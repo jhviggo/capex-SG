@@ -6,10 +6,10 @@ html
     div(class="header")
       div(class="link-button")
         a(href="/") Back to overview
-    div(class="content")
+    div(class="content test")
       each developer in developers
         div(class="dropdown")
-          button(onclick="dropdown()" class="dropbtn")= developer.name
+          button(onclick="dropdown(this)" class="dropbtn")= developer.name
           div(id="myDropdown" class="dropdown-content")
             p= 'Status: ' + developer.status
             p= 'Rank: ' + developer.rank

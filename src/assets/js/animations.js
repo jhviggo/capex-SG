@@ -1,5 +1,7 @@
-function dropdown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function dropdown(event) {
+    // document.getElementById("myDropdown").classList.toggle("show");
+    console.log('target: ', event.parentElement.lastElementChild)
+    event.parentElement.lastElementChild.classList.toggle("show");
 }
 
 window.onclick = function(event) {

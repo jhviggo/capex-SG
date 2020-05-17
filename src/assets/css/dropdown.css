@@ -21,8 +21,9 @@
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
+    height: 0;
     display: none;
-    position: absolute;
+    width: fit-content;
     background-color: #f1f1f1;
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -36,9 +37,21 @@
     text-decoration: none;
     display: block;
   }
+
+  .dropdown-content p {
+    padding: .5em;
+    margin: 0;
+  }
   
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd}
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-  .show {display:block;} 
+  .show {height: auto; display: block;} 
+
+
+  .test {
+    display: grid;
+    grid-gap: 1em;
+}
+
