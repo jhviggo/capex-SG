@@ -113,6 +113,16 @@ class Project {
         return weeks;
     }
 
+    get weekNumbers() {
+        let weeks = []; 
+
+        for (let i = this._startDate.getWeek(); i < this._endDate.getWeek(); i++) {
+            weeks.push(i);
+        }
+
+        return weeks;
+    }
+
     get endDate() {
         return this._endDate;
     }

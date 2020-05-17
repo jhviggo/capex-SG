@@ -9,9 +9,10 @@ html
         a(href="/add/developer") Add Developer
     div(class="content")
       each project in projects
+        - var weekNumbers = project.weekNumbers
         a(href="/project-details/" + project.docId class="project-title")= project.name
         div(class="week-grid")
           each week, index in project.weeks
             a(href="/" + project.docId + "/" + index) 
               div(class="week" class=week.class class=week)
-                p= 'W' + index
+                p= 'W' + weekNumbers[index]
