@@ -10,8 +10,8 @@ describe('developer', () => {
         dev1 = new devModel.Developer('1', 'Kristian', 'Free', 'pleb');
         dev2 = new devModel.Developer('2', 'Kristoffer', 'Free', 'CSGO PRO');
         dev3 = new devModel.Developer('3', 'Kasper', 'Free', 'GUDEN');
-        proj1 = new projectModel.Project('1', 'Tonse Project', new Date(), new Date(2020, 4, 20), 50);
-        proj2 = new projectModel.Project('2', 'Det lille project', new Date(), new Date(2020, 4, 28), 10);
+        proj1 = new projectModel.Project('1', 'Tonse Project', new Date(2020, 3, 20), new Date(2020, 4, 20), 50);
+        proj2 = new projectModel.Project('2', 'Det lille project', new Date(2020, 3, 20), new Date(2020, 4, 28), 10);
         vac1 = new Date(2020, 4, 13);
     });
 
@@ -55,22 +55,22 @@ describe('developer', () => {
         let result = proj1.activeDevs(20);
         assert.isTrue(result.length === 0);
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency no overlap', function(){
         // No overlapping projects and no devs on vacation
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
         proj1.addDeveloper(dev3);
         assert.equal(100, proj1.weeksEfficiency(20));
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency 1 overlap', function(){
         // 1 dev with overlapping projects
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
         proj1.addDeveloper(dev3);
         proj2.addDeveloper(dev1);
-        assert.equal(proj1.weeksEfficiency(20).toFixed(2), (83.33333333333333).toFixed(2))
+        assert.equal(proj1.weeksEfficiency(20).toFixed(2), (83.33).toFixed(2))
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency 2 overlap', function(){
         // 2 devs with overlapping projects
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
@@ -79,7 +79,7 @@ describe('developer', () => {
         proj2.addDeveloper(dev2);
         assert.equal(proj1.weeksEfficiency(20).toFixed(2), (66.66666666666667).toFixed(2));
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency 3 overlap', function(){
         // 3 devs with overlapping projects
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
@@ -89,7 +89,7 @@ describe('developer', () => {
         proj2.addDeveloper(dev3);
         assert.equal(50, proj1.weeksEfficiency(20))
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency 1 vacation', function(){
         // No overlapping projects but 1 dev on vacation
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
@@ -97,7 +97,7 @@ describe('developer', () => {
         dev1.addVacationDay(vac1);
         assert.equal(proj1.weeksEfficiency(20).toFixed(2), (66.66666666666667).toFixed(2))
     });
-    it('weeksEfficiency should return the efficiency of a given week', function(){
+    it('weeksEfficiency 1 overlap 1 vacation', function(){
         // 1 dev with overlapping projects and 1 dev on vacation
         proj1.addDeveloper(dev1);
         proj1.addDeveloper(dev2);
